@@ -1,0 +1,34 @@
+<html lang="ru">
+<head>
+  <title>{{ pagename }}</title>
+  <link rel="stylesheet" href="../static/css/login.css">
+</head>
+<header>
+    <h1 class="inline">Авторизация</h1>
+    <form class="inline left" action="../time"><input class="hbtn" type="submit" value="Time" /></form>
+    <form class="inline left" action=".."><input class="hbtn" type="submit" value="Menu" /></form>
+    <div class="inline right">
+      <form class="lrform" action="../login"><input class="hbtn lrlink" type="submit" value="Login" /></form>
+      <form class="lrform botlrform" action="../register"><input class="hbtn lrlink" type="submit" value="Register" /></form>
+    </div>
+</header>
+<body>
+    <form class="form" action="pages/index.html" method="POST">
+      {% csrf_token %}
+      {{ form.login.label }}
+      <input class="input" type="text" placeholder="Логин">
+      <input class="input" type="password" placeholder="Пароль">
+      <button class="btn" type="submit">Войти</button>
+      <p class="exists"><a href="../register">Нет аккаунта? Зарегистрироваться</a></p>
+    </form>
+
+    <!--- <form  method="POST">
+        {% csrf_token %}
+        {% for item in form %}
+            <label>{{ item.label }}:</label><br>
+            {{ item }}
+        {% endfor %}
+
+        <input type="submit" value="Войти">
+    </form> --->
+</body>
